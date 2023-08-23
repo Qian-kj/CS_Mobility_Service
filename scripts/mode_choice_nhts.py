@@ -13,6 +13,7 @@ import json
 from collections import OrderedDict
 import copy
 import re
+import pylogit as pl
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
