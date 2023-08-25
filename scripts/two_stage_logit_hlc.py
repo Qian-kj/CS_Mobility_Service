@@ -55,6 +55,7 @@ class TwoStageLogitHLC():
         self.FITTED_HOME_LOC_MODEL_PATH='./cities/'+self.city_folder+'/models/home_loc_logit.p'
         self.RENT_NORM_PATH='./cities/'+self.city_folder+'/models/rent_norm.json'
         # PUMAs        
+        # https://www2.census.gov/geo/tiger/TIGER2016/PUMA/
         self.PUMA_SHAPE_PATH='./cities/'+city_folder+'/raw/PUMS/pumas.geojson'
         self.PUMAS_INCLUDED_PATH='./cities/'+city_folder+'/raw/PUMS/pumas_included.json'
         self.PUMA_ATTR_PATH = './cities/'+city_folder+'/models/puma_attr.json'
@@ -283,6 +284,7 @@ class TwoStageLogitHLC():
         sample_size=5000
         
         PUMA_POP_PATH='./cities/'+self.city_folder+'/raw/ACS/ACS_17_1YR_B01003/population.csv'
+        # https://www2.census.gov/programs-surveys/acs/data/pums/2016/1-Year/
         PUMS_HH_PATH='./cities/'+self.city_folder+'/raw/PUMS/csv_h'+state_codes[self.city_folder]+'/ss16h'+state_codes[self.city_folder]+'.csv'
         PUMS_POP_PATH='./cities/'+self.city_folder+'/raw/PUMS/csv_p'+state_codes[self.city_folder]+'/ss16p'+state_codes[self.city_folder]+'.csv'
 #        POI_PATH = './cities/'+self.city_folder+'/raw/OSM/poi.geojson'
