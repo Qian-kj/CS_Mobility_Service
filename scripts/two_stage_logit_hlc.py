@@ -80,6 +80,7 @@ class TwoStageLogitHLC():
         puma_geo=json.load(open(self.PUMA_SHAPE_PATH))
 #        puma_order=[f['properties']['PUMACE10'] for f in puma_geo['features']]
         puma_included=json.load(open(self.PUMAS_INCLUDED_PATH)) 
+        puma_included = puma_included['puma']
         puma_df = pd.DataFrame(json.load(open(self.PUMA_ATTR_PATH, 'r')))
         # if the shape type is "Polygon", [0][0] would return only a point
         for feature in puma_geo['features']:
@@ -96,7 +97,10 @@ class TwoStageLogitHLC():
         
     def assign_base_houses_to_pumas(self, base_vacant_houses):
         for house in base_vacant_houses:
-            self.pumas[self.puma_order.index(str(house.puma10).zfill(5))].base_houses.append(house)
+            try:
+                self.pumas[self.puma_order.index(str(house.puma10).zfill(5))].base_houses.append(house)
+            except:
+                break
 
     def create_geogrid_index_to_puma_index(self, geogrid):
         self.geogrid_index_to_puma_index={}
