@@ -284,7 +284,7 @@ class MobilityModel():
         self.pop.add_new_pop(new_persons)
         self.pop.add_new_housing_units(new_houses)
         
-    def get_avg_co2(self, persons=None):
+    def get_all_avg_co2(self, persons=None):
         if persons==None:
             persons=self.pop.impact
         total_co2_kg=0
@@ -300,7 +300,7 @@ class MobilityModel():
                         mode=trip.mode
                         total_co2_kg+=trip.total_distance*mode.co2_emissions_kg_met
                         total_dist+=trip.total_distance
-        return total_co2_kg/count
+        return total_co2_kg, total_co2_kg/count
     
     def get_num_trips(self, persons=None):
         if persons==None:
